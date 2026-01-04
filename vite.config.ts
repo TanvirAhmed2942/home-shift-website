@@ -52,6 +52,29 @@ export default defineConfig({
   build: {
     target: "esnext",
     outDir: "build",
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Vendor chunks
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'radix-vendor': [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-select',
+            '@radix-ui/react-popover',
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-alert-dialog',
+            '@radix-ui/react-avatar',
+            '@radix-ui/react-checkbox',
+            '@radix-ui/react-label',
+            '@radix-ui/react-radio-group',
+          ],
+          'ui-vendor': ['lucide-react', 'date-fns', 'motion'],
+          'map-vendor': ['mapbox-gl'],
+        },
+      },
+    },
   },
   server: {
     host: "10.10.7.79",
