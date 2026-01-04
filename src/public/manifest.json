@@ -1,0 +1,134 @@
+{
+  "name": "ShiftMyHome - Professional Moving & Logistics",
+  "short_name": "ShiftMyHome",
+  "description": "Professional moving and logistics services with live tracking, instant quotes, and verified drivers",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1b4b",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "ShiftMyHome Homepage"
+    },
+    {
+      "src": "/screenshots/mobile-booking.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Booking Form"
+    },
+    {
+      "src": "/screenshots/mobile-tracking.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Live Tracking"
+    }
+  ],
+  "categories": ["business", "lifestyle", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Book a Move",
+      "short_name": "Book",
+      "description": "Get an instant quote and book your move",
+      "url": "/#booking",
+      "icons": [
+        {
+          "src": "/icons/shortcut-booking.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Track My Move",
+      "short_name": "Track",
+      "description": "Track your move in real-time",
+      "url": "/tracking",
+      "icons": [
+        {
+          "src": "/icons/shortcut-tracking.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Customer Dashboard",
+      "short_name": "Dashboard",
+      "description": "View your bookings and history",
+      "url": "/customer-dashboard",
+      "icons": [
+        {
+          "src": "/icons/shortcut-dashboard.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "prefer_related_applications": false
+}

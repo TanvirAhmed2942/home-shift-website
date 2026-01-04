@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>ShiftMyHome - Professional Moving & Logistics Services | Instant Quote</title>
+  <meta name="title" content="ShiftMyHome - Professional Moving & Logistics Services | Instant Quote">
+  <meta name="description" content="Professional moving and logistics services with live tracking, instant quotes, and verified drivers. House removals, furniture delivery, man with van services across the UK.">
+  <meta name="keywords" content="moving services, house removals, man and van, furniture delivery, logistics, live tracking, instant quote, professional movers">
+  <meta name="author" content="ShiftMyHome">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Theme Color for Mobile Browsers -->
+  <meta name="theme-color" content="#8b5cf6">
+  <meta name="msapplication-TileColor" content="#8b5cf6">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/icon-128x128.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-72x72.png">
+  <link rel="shortcut icon" href="/icons/icon-72x72.png">
+  
+  <!-- iOS Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ShiftMyHome">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- Android Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="ShiftMyHome">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shiftmyhome.com/">
+  <meta property="og:title" content="ShiftMyHome - Professional Moving & Logistics Services">
+  <meta property="og:description" content="Professional moving and logistics services with live tracking, instant quotes, and verified drivers. Book your move today!">
+  <meta property="og:image" content="https://shiftmyhome.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="ShiftMyHome">
+  <meta property="og:locale" content="en_GB">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://shiftmyhome.com/">
+  <meta name="twitter:title" content="ShiftMyHome - Professional Moving & Logistics Services">
+  <meta name="twitter:description" content="Professional moving and logistics services with live tracking, instant quotes, and verified drivers. Book your move today!">
+  <meta name="twitter:image" content="https://shiftmyhome.com/twitter-image.png">
+  <meta name="twitter:creator" content="@ShiftMyHome">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ShiftMyHome",
+    "url": "https://shiftmyhome.com",
+    "logo": "https://shiftmyhome.com/icons/icon-512x512.png",
+    "description": "Professional moving and logistics services with live tracking, instant quotes, and verified drivers.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+44-20-1234-5678",
+      "contactType": "Customer Service",
+      "areaServed": "GB",
+      "availableLanguage": ["en"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/ShiftMyHome",
+      "https://twitter.com/ShiftMyHome",
+      "https://www.instagram.com/ShiftMyHome"
+    ]
+  }
+  </script>
+  
+  <!-- Preconnect to External Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://maps.googleapis.com">
+  <link rel="dns-prefetch" href="https://api.stripe.com">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" as="script" href="/main.js">
+  <link rel="preload" as="style" href="/styles.css">
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://shiftmyhome.com/">
+  
+  <!-- Alternate Languages (if supporting multiple languages) -->
+  <!-- <link rel="alternate" hreflang="en" href="https://shiftmyhome.com/en/"> -->
+  <!-- <link rel="alternate" hreflang="ro" href="https://shiftmyhome.com/ro/"> -->
+</head>
+<body>
+  <noscript>
+    <div style="text-align: center; padding: 40px; font-family: sans-serif;">
+      <h1>JavaScript Required</h1>
+      <p>ShiftMyHome requires JavaScript to run. Please enable JavaScript in your browser settings.</p>
+    </div>
+  </noscript>
+  
+  <!-- Root div for React -->
+  <div id="root"></div>
+  
+  <!-- Service Worker Cleanup Script -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        // Explicitly unregister any existing service workers to fix background sync errors
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+            console.log('✅ Service Worker unregistered to prevent sync errors');
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>

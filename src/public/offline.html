@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - ShiftMyHome</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 48px 32px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 32px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+    }
+
+    .icon svg {
+      width: 60px;
+      height: 60px;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #4a5568;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #fed7d7;
+      color: #c53030;
+      border-radius: 12px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .status.online {
+      background: #c6f6d5;
+      color: #22543d;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .features {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 2px solid #e2e8f0;
+    }
+
+    .feature-list {
+      list-style: none;
+      text-align: left;
+    }
+
+    .feature-list li {
+      padding: 12px 0;
+      color: #2d3748;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: #c6f6d5;
+      color: #22543d;
+      border-radius: 50%;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+
+    <h1>You're Offline</h1>
+    
+    <div class="status" id="status">
+      <span class="status-dot"></span>
+      <span id="status-text">No Internet Connection</span>
+    </div>
+
+    <p>
+      Don't worry! ShiftMyHome works offline. You can still view your bookings and cached data.
+    </p>
+
+    <button id="retry-btn" onclick="retryConnection()">
+      Retry Connection
+    </button>
+
+    <div class="features">
+      <ul class="feature-list">
+        <li>View your recent bookings</li>
+        <li>Browse cached service information</li>
+        <li>Access saved addresses</li>
+        <li>Auto-sync when back online</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Check online status
+    function updateStatus() {
+      const status = document.getElementById('status');
+      const statusText = document.getElementById('status-text');
+      
+      if (navigator.onLine) {
+        status.classList.add('online');
+        statusText.textContent = 'Back Online!';
+        
+        // Reload page after 1 second
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 1000);
+      } else {
+        status.classList.remove('online');
+        statusText.textContent = 'No Internet Connection';
+      }
+    }
+
+    function retryConnection() {
+      const btn = document.getElementById('retry-btn');
+      btn.disabled = true;
+      btn.textContent = 'Checking...';
+
+      // Try to fetch a small resource
+      fetch('/', { method: 'HEAD', cache: 'no-cache' })
+        .then(() => {
+          btn.textContent = 'Connected!';
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 500);
+        })
+        .catch(() => {
+          btn.textContent = 'Still Offline';
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.textContent = 'Retry Connection';
+          }, 2000);
+        });
+    }
+
+    // Listen for online/offline events
+    window.addEventListener('online', updateStatus);
+    window.addEventListener('offline', updateStatus);
+
+    // Check status on load
+    updateStatus();
+  </script>
+</body>
+</html>

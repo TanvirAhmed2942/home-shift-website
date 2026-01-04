@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 219 88% 55%;
+    --color-secondary: 262 83% 58%;
+    --color-accent: 189 94% 43%;
+    --animation-duration: 300ms;
+    --transition-duration: 200ms;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+
+  h2 {
+    @apply scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+  }
+
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+
+  p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+
+  /* ==================== ACCESSIBILITY FEATURES ==================== */
+  
+  /* Skip Links */
+  .skip-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .skip-links:focus-within {
+    transform: translateY(0);
+  }
+
+  .skip-link {
+    display: inline-block;
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+
+  .skip-link:hover,
+  .skip-link:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: 2px solid white;
+    outline-offset: -2px;
+  }
+
+  /* Screen Reader Only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only-focusable:focus,
+  .sr-only-focusable:active {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* High Contrast Mode */
+  .high-contrast {
+    --color-primary: 0 0% 0%;
+    --color-secondary: 0 0% 0%;
+    --color-accent: 0 0% 0%;
+  }
+
+  .high-contrast * {
+    border-color: #000 !important;
+  }
+
+  .high-contrast button,
+  .high-contrast a {
+    border: 2px solid #000 !important;
+  }
+
+  .high-contrast .bg-gradient-to-r,
+  .high-contrast .bg-gradient-to-br,
+  .high-contrast .bg-gradient-to-tr {
+    background: #000 !important;
+    color: #fff !important;
+  }
+
+  .high-contrast input,
+  .high-contrast select,
+  .high-contrast textarea {
+    border: 2px solid #000 !important;
+  }
+
+  /* Large Fonts Mode */
+  .large-fonts {
+    font-size: 125%;
+  }
+
+  .large-fonts h1 {
+    font-size: 3.5rem;
+  }
+
+  .large-fonts h2 {
+    font-size: 2.75rem;
+  }
+
+  .large-fonts h3 {
+    font-size: 2rem;
+  }
+
+  .large-fonts p,
+  .large-fonts li,
+  .large-fonts span {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  .large-fonts button,
+  .large-fonts a {
+    font-size: 1.125rem;
+    padding: 0.875rem 1.75rem;
+  }
+
+  /* Focus Visible - Enhanced keyboard navigation */
+  *:focus-visible {
+    outline: 3px solid #8b5cf6;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid #8b5cf6;
+    outline-offset: 3px;
+  }
+
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid #8b5cf6;
+    outline-offset: 2px;
+    border-color: #8b5cf6;
+  }
+
+  /* Reduce Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Dark Mode Adjustments */
+  @media (prefers-color-scheme: dark) {
+    .skip-links {
+      background: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+    }
+
+    .high-contrast {
+      background: #000;
+      color: #fff;
+    }
+  }
+
+  /* Touch Target Size (Minimum 44x44px for WCAG) */
+  button,
+  a,
+  input[type="checkbox"],
+  input[type="radio"],
+  select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Ensure text has sufficient contrast */
+  .text-muted {
+    color: #6b7280;
+  }
+
+  .high-contrast .text-muted {
+    color: #000;
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0.2;
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-40px) translateX(-10px);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-20px) translateX(5px);
+      opacity: 0.6;
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
