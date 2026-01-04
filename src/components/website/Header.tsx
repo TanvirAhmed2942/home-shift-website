@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Truck, Menu, X, User, Phone, Home, ChevronDown } from "lucide-react";
 import { throttle } from "../../utils/performance";
 import { NotificationCenter } from "./NotificationCenter";
-
+import logo from "../../public/logo.png";
 interface HeaderProps {
   onGetPrice: () => void;
   onShowLogin: (tab: "customer" | "driver" | "admin") => void;
@@ -93,7 +93,7 @@ export function Header({
             className="flex items-center gap-3 flex-shrink-0 group"
             onClick={handleLogoClick}
           >
-            <div className="relative">
+            {/* <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Truck className="w-10 h-10 text-blue-400 relative z-10 transform group-hover:scale-110 transition-transform duration-300" />
             </div>
@@ -104,11 +104,19 @@ export function Header({
               <span className="text-xs text-slate-300 leading-tight text-center hidden sm:block">
                 Your move made simple
               </span>
+            </div> */}
+
+            <div className="flex items-center gap-2 w-32 h-24">
+              <img
+                src={logo}
+                className="w-full h-full object-contain"
+                alt="ShiftMyHome"
+              />
             </div>
           </a>
 
           {/* Desktop Navigation - Optimized */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8 border border-gray-700 rounded-lg px-4 py-2 bg-white/20 backdrop-blur-lg">
             <button
               onClick={() => scrollToSection("services")}
               className="text-white/90 hover:text-white transition-colors font-medium cursor-pointer"

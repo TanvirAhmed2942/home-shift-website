@@ -12,10 +12,10 @@ import {
   Youtube,
   MessageCircle,
 } from "lucide-react";
-import { Logo } from "./Logo";
-import { LiveChatWidget } from "./LiveChatWidget";
-import { Button } from "../ui/button";
 
+import { LiveChatWidget } from "./LiveChatWidget";
+
+import logo from "../../public/logo.png";
 interface FooterProps {
   onShowTerms: () => void;
   onShowSitemap: () => void;
@@ -50,11 +50,11 @@ export function Footer({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="mb-6">
-              <Logo
-                variant="white"
-                size="lg"
-                className="h-20 w-auto object-contain"
+            <div className="">
+              <img
+                src={logo}
+                className="w-full h-full object-contain"
+                alt="ShiftMyHome"
               />
             </div>
             <p className="text-sm text-slate-400 mb-6">
